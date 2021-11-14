@@ -15,3 +15,49 @@
 // 結果輸出：函式PrintStack()的執行結果
 
 
+#include <iostream>
+using namespace std;
+
+class Stack
+{
+public:
+    void Push(int);
+    int Pop();
+    void PrintStack();
+    int capacity = 0;
+    int array[10];
+    int top = -1;
+};
+
+void Stack::Push(int x)
+{
+    array[++top] = x;
+}
+
+int Stack::Pop()
+{
+    return array[top--];
+}
+
+void Stack::PrintStack()
+{
+    for (int i = top; i >= 0; i--)
+        cout << array[i] << " ";
+}
+
+
+int main(int argc, char* argv[])
+{
+    Stack stack;
+    int times, input;
+    cin >> times;
+    for (int i = 0; i < times; i++) {
+        cin >> input;
+        stack.Push(input);
+    }
+    cin >> times;
+    for (int i = 0; i < times; i++) {
+        stack.Pop();
+    }
+    stack.PrintStack();
+}
