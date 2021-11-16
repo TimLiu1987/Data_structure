@@ -68,7 +68,7 @@ void InfixToPostfix(char infix[])
                 break;
         }
     }
-    for(;top>0;)
+    while(top>0)
     {
         cout << Stack[top--];
     }
