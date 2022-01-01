@@ -4,37 +4,44 @@ using namespace std;
 class Queue
 {
 public:
-    Queue();
-    void Enqueue(int x);
-    int Dequeue();
-    int PrintQueue();
-    int arr[10];
+    int arr[10]={};
     int rear=0;
     int front=0;
 
-};
-
-void Queue::Enqueue(int x) {
-    rear=(rear+1)%10;
-    arr[rear]=x;
-}
-
-int Queue::Dequeue() {
-    front=(front+1)%10;
-}
-
-int Queue::PrintQueue() {
-    for(int i=front;i!=rear;)
+    Queue(){};
+    void Enqueue(int x)
     {
-        i=(i+1)%10;
-        cout << arr[i] << " ";
-    }
-    cout << "rear:" << rear << " front:" << front;
-}
+        rear++;
+        if(rear>9)
+        {
+            rear=0;
+        }
 
-Queue::Queue() {
+        arr[rear]=x;
 
-}
+    };
+
+    int Dequeue()
+    {
+        front++;
+        if(front>9)
+        {
+            front=0;
+        }
+        return front;
+
+    };
+
+    void PrintQueue()
+    {
+        for(int i=front+1;i!=rear;)
+        {
+            i=(i+1)%10;
+            cout << arr[i] << " ";
+        }
+        cout << "rear:" << rear << " " << "front:" << front;
+    };
+};
 
 int main(int argc, char* argv[]) {
     Queue queue;
@@ -52,5 +59,3 @@ int main(int argc, char* argv[]) {
     }
     queue.PrintQueue();
 }
-
-//cout << "阿亮好醜";
