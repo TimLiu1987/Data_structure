@@ -34,7 +34,7 @@ public:
 
     void PrintQueue()
     {
-        for(int i=front+1;i!=rear;)
+        for(int i=front;i!=rear;)
         {
             i=(i+1)%10;
             cout << arr[i] << " ";
